@@ -1,4 +1,4 @@
-package com.neizu.Ecommerce.dto;
+package com.neizu.Ecommerce.dto.request;
 
 
 import lombok.Builder;
@@ -8,15 +8,9 @@ import java.time.LocalDate;
 
 @Data
 @Builder
-public class CostumerDto {
+public class UpdateCostumerDto {
 
-
-    private  String username;
     private String fullName;
     private LocalDate birthday;
-    private Integer money;
-    private Integer age;
-
-
 
 }
