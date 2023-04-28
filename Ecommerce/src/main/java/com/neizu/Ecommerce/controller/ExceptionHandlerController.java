@@ -2,6 +2,7 @@ package com.neizu.Ecommerce.controller;
 
 import com.neizu.Ecommerce.dto.response.ErrorResponse;
 import com.neizu.Ecommerce.exception.IdNotFoundException;
+import com.neizu.Ecommerce.exception.NotEnoughMoneyException;
 import com.neizu.Ecommerce.exception.UsernameAlreadyDefinedException;
 import com.neizu.Ecommerce.exception.UsernameNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -36,6 +37,15 @@ public class ExceptionHandlerController {
                 .errorCode(HttpStatus.NOT_FOUND)
                 .build();
     }
+
+    @ExceptionHandler(NotEnoughMoneyException.class)
+    public ErrorResponse handleNotEnoughMoneyException(NotEnoughMoneyException e){
+        return ErrorResponse.builder()
+                .message(e.getMessage())
+                .errorCode(HttpStatus.BAD_REQUEST)
+                .build();
+    }
+
 
 
 
