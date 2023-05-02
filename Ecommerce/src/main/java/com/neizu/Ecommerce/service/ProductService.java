@@ -11,7 +11,6 @@ import com.neizu.Ecommerce.repository.ProductRepo;
 import com.neizu.Ecommerce.util.ProductDtoConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -23,6 +22,11 @@ public class ProductService {
 
     private final ProductRepo productRepo;
     private final ProductDtoConverter productDtoConverter;
+    private CostumerService costumerService;
+    public void setCostumerService(CostumerService costumerService) {
+        this.costumerService = costumerService;
+    }
+
 
     public void createProduct(CreateProductDto createProductDto) {
         Product product = Product.builder()

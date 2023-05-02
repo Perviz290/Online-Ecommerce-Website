@@ -27,8 +27,13 @@ import java.util.stream.Collectors;
 public class CostumerService {
 
     private final CostumerRepo costumerRepo;
-    private final ProductService productService;
     private final CostumerDtoConverter costumerDtoConverter;
+    private ProductService productService;
+    public void setProductService(ProductService productService) {
+        this.productService = productService;
+    }
+
+
 
     public void createCostumer(CreateCostumerDto createCostumerDto) {
         Optional<Costumer> costumerOptional = costumerRepo.findCostumerByUsername(createCostumerDto.getUsername());
